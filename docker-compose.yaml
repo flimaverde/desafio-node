@@ -1,15 +1,15 @@
 version: '3'
 
-services:
+services: 
   app:
     build:
-     context: .
+     context: node    
     container_name: app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 60s node index.js
     networks:
       - node-network
     volumes:
-      - .:/usr/src/app     
+       - ./node:/usr/src/app       
     tty: true
     ports:
       - "3000:3000"
