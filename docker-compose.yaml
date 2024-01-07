@@ -9,13 +9,13 @@ services:
     networks:
       - node-network
     volumes:
-       - ./node:/usr/src/app       
+       - ./node:/usr/src/app 
+       - /usr/src/app/node_modules          
     tty: true
     ports:
       - "3000:3000"
     depends_on:
-      - db
-
+      - db    
   db:
     image: mysql:5.7
     command: --innodb-use-native-aio=0
